@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 export default function BananSmoothie({navigation, route}) {
   return (
     <View style={styles.container}>
-      <Text>Wow Such Product</Text>
+      <Text style={styles.fruit}>BANANSMOOTHIE</Text>
       <Button title='Home' onPress={() => {
         navigation.navigate('Home');
       }} />
@@ -16,8 +16,12 @@ export default function BananSmoothie({navigation, route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#2596be',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  fruit: {
+    fontSize: 40,
+    color: '#ffffff',
   },
 });

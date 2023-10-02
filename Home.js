@@ -1,21 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import FruitBox from './FruitBox';
 
 
 export default function Home({navigation}) {
 
-    const fruit = [
-        {
-            id: '1', fruit: 'ApelsinJuice',
-        },
-        {   
-            id: '2', fruit: 'BananSmoothie',
-        },
-        {
-            id: '3', fruit: 'Cider',
-        },
-    ];
+    const [fruit, setFruit] = useState([
+        {key: '1', fruit: 'ApelsinJuice'},
+        {key: '2', fruit: 'BananSmoothie'},
+        {key: '3', fruit: 'Cider'}
+])
 
     const Item = ({fruit}) => (
         <View style={styles.item}>
@@ -27,13 +22,6 @@ export default function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text>Home Sweet Home</Text>
-
-        <FlatList 
-        data={fruit}
-        renderItem={({item}) => <Item fruit={item.fruit} />}
-        keyExtractor={item => item.id}
-        />
-
       <Button title='ApelsinJuice' onPress={() => {
         navigation.navigate('ApelsinJuice');
       }} />
@@ -43,6 +31,19 @@ export default function Home({navigation}) {
        <Button title='Cider' onPress={() => {
         navigation.navigate('Cider');
       }} />
+
+<FlatList
+        data={fruit}
+        renderItem={({item}) => 
+            <TouchableOpacity onPress={() => {
+                navigation.navigate('Cider', {fruit: item});
+            }}>
+                <FruitBox frukt={item} />
+            </TouchableOpacity>
+            
+        }
+      />
+
       <StatusBar style="auto" />
     </View>
   );
