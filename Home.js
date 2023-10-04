@@ -7,22 +7,32 @@ import FruitBox from './FruitBox';
 export default function Home({navigation}) {
 
     const [fruit, setFruit] = useState([
-        {key: '1', fruit: 'ApelsinJuice'},
-        {key: '2', fruit: 'BananSmoothie'},
-        {key: '3', fruit: 'Cider'}
+        {key: '1', fruit: 'ApelsinJuice', 
+        fruit: 'BananSmoothie', 
+        fruit: 'Cider'},
 ])
 
     const Item = ({fruit}) => (
         <View style={styles.item}>
-          <Text style={styles.fruit}>{fruit}</Text>
+            <Text style={styles.fruit}>{fruit}</Text>
+                <Button title='ApelsinJuice' onPress={() => {
+                navigation.navigate('ApelsinJuice');
+                    }} />
+                <Button title='BananSmoothie' onPress={() => {
+                navigation.navigate('BananSmoothie');
+                }} />
+                <Button title='Cider' onPress={() => {
+                    navigation.navigate('Cider');
+                }} />
         </View>
-      );
+        
+        );
 
 
-  return (
+    return (
     <View style={styles.container}>
-      <Text>Home Sweet Home</Text>
-      <Button title='ApelsinJuice' onPress={() => {
+        <Text>Home Sweet Home</Text>
+{/*       <Button title='ApelsinJuice' onPress={() => {
         navigation.navigate('ApelsinJuice');
       }} />
        <Button title='BananSmoothie' onPress={() => {
@@ -30,23 +40,18 @@ export default function Home({navigation}) {
       }} />
        <Button title='Cider' onPress={() => {
         navigation.navigate('Cider');
-      }} />
+      }} /> */}
 
-<FlatList
+
+    <FlatList
         data={fruit}
-        renderItem={({item}) => 
-            <TouchableOpacity onPress={() => {
-                navigation.navigate('Cider', {fruit: item});
-            }}>
-                <FruitBox frukt={item} />
-            </TouchableOpacity>
-            
-        }
-      />
+        renderItem={({item}) => <Item fruit={item.fruit} />}
+        keyExtractor={item => item.key}
+    />
 
-      <StatusBar style="auto" />
+        <StatusBar style="auto" />
     </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({
@@ -57,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   item: {
-    backgroundColor: '#2596be',   
+    backgroundColor: '#ffffff',   
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,

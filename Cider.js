@@ -23,5 +23,5 @@ const styles = StyleSheet.create({
   fruit: {
     fontSize: 40,
     color: '#ffffff',
-  },
+    },
 });
