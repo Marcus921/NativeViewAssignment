@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Button, FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import FruitBox from './FruitBox';
 
 
 export default function Home({navigation}) {
 
     const [fruit, setFruit] = useState([
-        {key: '1', fruit: 'ApelsinJuice', 
+        {key: '1', 
+        fruit: 'ApelsinJuice', 
         fruit: 'BananSmoothie', 
         fruit: 'Cider'},
 ])
@@ -32,23 +32,11 @@ export default function Home({navigation}) {
     return (
     <View style={styles.container}>
         <Text>Home Sweet Home</Text>
-{/*       <Button title='ApelsinJuice' onPress={() => {
-        navigation.navigate('ApelsinJuice');
-      }} />
-       <Button title='BananSmoothie' onPress={() => {
-        navigation.navigate('BananSmoothie');
-      }} />
-       <Button title='Cider' onPress={() => {
-        navigation.navigate('Cider');
-      }} /> */}
-
-
-    <FlatList
-        data={fruit}
-        renderItem={({item}) => <Item fruit={item.fruit} />}
-        keyExtractor={item => item.key}
-    />
-
+            <FlatList
+                data={fruit}
+                renderItem={({item}) => <Item fruit={item.fruit} />}
+                keyExtractor={item => item.key}
+            />
         <StatusBar style="auto" />
     </View>
     );
