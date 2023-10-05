@@ -20,6 +20,7 @@ export default function Home({navigation}) {
                     <Text>{item.Drinks}</Text>
                 </TouchableOpacity>
             )}/>
+            <StatusBar style="auto" />
         </View>
     )
 }
