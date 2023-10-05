@@ -3,9 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './Home';
-import ApelsinJuice from './ApelsinJuice';
-import BananSmoothie from './BananSmoothie';
-import Cider from './Cider';
+import SecondView from './SecondView';
+import ThirdView from './ThirdView';
 
 export default function App() {
 
@@ -16,21 +15,10 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name='Home' component={Home} />
 
-        <Stack.Screen name='ApelsinJuice' component={ApelsinJuice} />
+        <Stack.Screen name='SecondView' component={SecondView} />
 
-        <Stack.Screen name='BananSmoothie' component={BananSmoothie} />
-
-        <Stack.Screen name='Cider' component={Cider} />
+        <Stack.Screen name='ThirdView' component={ThirdView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
